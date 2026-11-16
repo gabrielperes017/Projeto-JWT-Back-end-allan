@@ -1,4 +1,5 @@
 const userService = require("./user.service");
+const { sendError } = require("../config/http");
 
 const userController = {
     create: async (req, res) => {
@@ -6,7 +7,21 @@ const userController = {
             const user = await userService.create(req.body);
             res.status(201).json(user);
         } catch (error) {
-            res.status(400).json({ error: error.message });
+            sendError(res, error);
+        }
+    },
+    update: async (req, res) => {
+        try {
+            res.json(await userService.update(req.params.id, req.body));
+        } catch (error) {
+            sendError(res, error);
+        }
+    },
+    setActive: async (req, res) => {
+        try {
+            res.json(await userService.setActive(req.params.id, req.body.active));
+        } catch (error) {
+            sendError(res, error);
         }
     },
     findById: async (req, res) => {
@@ -17,7 +32,7 @@ const userController = {
             }
             res.json(user);
         } catch (error) {
-            res.status(400).json({ error: error.message });
+            sendError(res, error);
         }
     },
     findByEmail: async (req, res) => {
@@ -28,7 +43,7 @@ const userController = {
             }
             res.json(user);
         } catch (error) {
-            res.status(400).json({ error: error.message });
+            sendError(res, error);
         }
     },
     findAll: async (req, res) => {
@@ -36,7 +51,7 @@ const userController = {
             const users = await userService.findAll();
             res.json(users);
         } catch (error) {
-            res.status(400).json({ error: error.message });
+            sendError(res, error);
         }
     }
 };

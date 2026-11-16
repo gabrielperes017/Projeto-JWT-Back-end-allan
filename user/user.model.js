@@ -15,6 +15,11 @@ const User = db.define('User', {
         allowNull: false,
         defaultValue: false
     },
+    active: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true
+    },
     username: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -24,6 +29,9 @@ const User = db.define('User', {
         type: DataTypes.STRING,
         allowNull: false
     }
+}, {
+    // a senha (hash) nunca sai nas consultas, exceto via unscoped() no login
+    defaultScope: { attributes: { exclude: ['password'] } }
 });
 
 module.exports = User;
