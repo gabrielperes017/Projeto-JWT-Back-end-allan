@@ -1,4 +1,4 @@
-const readerService = require('./reader.service');
+const readerService = require('./service');
 const { sendError } = require('../config/http');
 
 const readerController = {

@@ -1,9 +1,9 @@
 const { Router } = require('express');
 const router = Router();
 
-const reportService = require('./report.service');
-const authMiddleware = require('../auth/auth.middleware');
-const isAdmin = require('../auth/isAdmin.middleware');
+const reportService = require('./service');
+const authMiddleware = require('../auth/middleware');
+const isAdmin = require('../auth/isAdmin');
 const { sendError } = require('../config/http');
 
 router.get('/dashboard', authMiddleware, isAdmin, async (req, res) => {

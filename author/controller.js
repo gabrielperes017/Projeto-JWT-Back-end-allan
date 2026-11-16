@@ -1,4 +1,4 @@
-const authorService = require('./author.service');
+const authorService = require('./service');
 const { sendError } = require('../config/http');
 
 const authorController = {

@@ -1,4 +1,4 @@
-const authService = require("./auth.service");
+const authService = require("./service");
 
 const authMiddleware = async (req, res, next) => {
     const token = req.header('Authorization')?.replace('Bearer ', '');

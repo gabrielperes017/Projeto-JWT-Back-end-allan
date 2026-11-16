@@ -1,5 +1,5 @@
 const { User } = require('../models');
-const userService = require('../user/user.service');
+const userService = require('../user/service');
 
 const seedAdmin = async () => {
     if (await User.count({ where: { isAdmin: true } })) return;

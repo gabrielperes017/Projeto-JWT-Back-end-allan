@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
-const userService = require('../user/user.service');
-const RefreshToken = require('./refreshToken.model');
+const userService = require('../user/service');
+const RefreshToken = require('./refreshToken');
 const { httpError } = require('../config/http');
 
 const REFRESH_DAYS = 7;

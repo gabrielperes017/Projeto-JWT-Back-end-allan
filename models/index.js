@@ -1,12 +1,12 @@
 const db = require('../config/db');
-const User = require('../user/user.model');
-const RefreshToken = require('../auth/refreshToken.model');
-const Category = require('../category/category.model');
-const Author = require('../author/author.model');
-const Book = require('../book/book.model');
-const BookAuthor = require('../book/bookAuthor.model');
-const Reader = require('../reader/reader.model');
-const Loan = require('../loan/loan.model');
+const User = require('../user/model');
+const RefreshToken = require('../auth/refreshToken');
+const Category = require('../category/model');
+const Author = require('../author/model');
+const Book = require('../book/model');
+const BookAuthor = require('../book/bookAuthor');
+const Reader = require('../reader/model');
+const Loan = require('../loan/model');
 
 User.hasMany(RefreshToken, { foreignKey: { name: 'userId', allowNull: false } });
 RefreshToken.belongsTo(User, { foreignKey: 'userId' });

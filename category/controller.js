@@ -1,4 +1,4 @@
-const categoryService = require('./category.service');
+const categoryService = require('./service');
 const { sendError } = require('../config/http');
 
 const categoryController = {

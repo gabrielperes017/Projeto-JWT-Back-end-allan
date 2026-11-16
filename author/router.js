@@ -1,9 +1,9 @@
 const { Router } = require('express');
 const router = Router();
 
-const controller = require('./book.controller');
-const authMiddleware = require('../auth/auth.middleware');
-const isAdmin = require('../auth/isAdmin.middleware');
+const controller = require('./controller');
+const authMiddleware = require('../auth/middleware');
+const isAdmin = require('../auth/isAdmin');
 
 router.use(authMiddleware);
 

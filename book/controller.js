@@ -1,4 +1,4 @@
-const bookService = require('./book.service');
+const bookService = require('./service');
 const { sendError } = require('../config/http');
 
 const bookController = {

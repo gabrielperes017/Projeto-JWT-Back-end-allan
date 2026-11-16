@@ -1,5 +1,5 @@
-const authService = require('./auth.service');
-const userService = require('../user/user.service');
+const authService = require('./service');
+const userService = require('../user/service');
 const { sendError } = require('../config/http');
 
 const authController = {

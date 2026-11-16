@@ -1,4 +1,4 @@
-const loanService = require('./loan.service');
+const loanService = require('./service');
 const { sendError } = require('../config/http');
 
 const loanController = {
