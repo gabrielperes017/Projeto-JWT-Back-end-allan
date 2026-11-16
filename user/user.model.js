@@ -11,7 +11,7 @@ const User = db.define('User', {
         unique: true
     },
     isAdmin: {
-        type: DataTypes.BOOLEAN, // Define the isAdmin field with a boolean data type
+        type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: false
     },
@@ -30,7 +30,6 @@ const User = db.define('User', {
         allowNull: false
     }
 }, {
-    // a senha (hash) nunca sai nas consultas, exceto via unscoped() no login
     defaultScope: { attributes: { exclude: ['password'] } }
 });
 

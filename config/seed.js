@@ -1,7 +1,6 @@
 const { User } = require('../models');
 const userService = require('../user/user.service');
 
-// Cria o primeiro admin se não existir nenhum
 const seedAdmin = async () => {
     if (await User.count({ where: { isAdmin: true } })) return;
     await userService.create({

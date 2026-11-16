@@ -13,7 +13,6 @@ const issueTokens = async (user) => {
         process.env.JWT_SECRET,
         { expiresIn: process.env.ACCESS_TOKEN_EXPIRES || '15m' }
     );
-    // jti garante refresh token único mesmo se emitido no mesmo segundo
     const refreshToken = jwt.sign(
         { id: user.id, jti: crypto.randomBytes(16).toString('hex') },
         process.env.JWT_REFRESH_SECRET,
@@ -42,7 +41,6 @@ const authService = {
         const record = refreshToken && await RefreshToken.findOne({ where: { token: refreshToken } });
         if (!record) throw httpError(401, 'Invalid refresh token');
         if (record.revoked) {
-            // reuso de token revogado: possível roubo, revoga todos do usuário
             await RefreshToken.update({ revoked: true }, { where: { userId: record.userId } });
             throw httpError(401, 'Refresh token reused');
         }

@@ -38,7 +38,6 @@ const bookService = {
         const book = await bookService.findById(id);
         const fields = { title, isbn, year, categoryId };
         if (totalCopies !== undefined) {
-            // mantém estoque consistente: exemplares emprestados continuam fora
             const available = book.availableCopies + (totalCopies - book.totalCopies);
             if (available < 0) throw httpError(409, 'totalCopies lower than copies currently on loan');
             fields.totalCopies = totalCopies;
